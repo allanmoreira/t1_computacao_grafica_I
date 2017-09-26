@@ -9,9 +9,11 @@ public class LeituraArquivo {
     private static final String CAMINHO_PROJETO = System.getProperty("user.dir") + "/src/arquivos/";;
     private File arquivo;
     private final char SEPARADOR_DE_EXTENSAO = '.';
-    
+    private int frame;
     private int maxX, maxY;
-
+    private int qtdPessoas;
+   
+    
     public LeituraArquivo(ArquivosDataSet arquivosDataSet){
         arquivo = new File(CAMINHO_PROJETO + arquivosDataSet.toString());
     }
@@ -51,8 +53,13 @@ public class LeituraArquivo {
                             String[] pos = s.split(",");
                             int x = Integer.parseInt(pos[0]);
                             int y = Integer.parseInt(pos[1]);
-                            Coordenada coordenada = new Coordenada(x, y, Integer.parseInt(pos[2]));
+                            int temp = Integer.parseInt(pos[2]);
+                            Coordenada coordenada = new Coordenada(x, y, temp);
                             filaCoordenadas.enqueue(coordenada);
+                           
+                            if(frame<temp) { //buscar o ultimo frame do video
+                            	frame=temp;
+                            }                            
                             
                             if(x > maxX)
                             	maxX = x;
@@ -71,6 +78,7 @@ public class LeituraArquivo {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         return listaPessoas;
     }
 
@@ -86,6 +94,14 @@ public class LeituraArquivo {
 
 	public int getMaxY() {
 		return maxY;
+	}
+
+	public int getFrame() {
+		return frame;
+	}
+
+	public void setFrame(int frame) {
+		this.frame = frame;
 	}
     
     
