@@ -111,7 +111,7 @@ implements <a href="../../../../com/jogamp/opengl/GLAnimatorControl.html" title=
  The change synchronization is done via synchronized blocks on the AnimatorBase instance.<br>
  Status get / set activity is synced with a RecursiveLock, used as a memory barrier.<br>
  This is suitable, since all change requests are allowed to be expensive
- as they are not expected to be called at every frame.
+ as they are not expected to be called at every qtdeFrames.
  </p></div>
 </li>
 </ul>
@@ -297,7 +297,7 @@ implements <a href="../../../../com/jogamp/opengl/GLAnimatorControl.html" title=
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../com/jogamp/opengl/util/AnimatorBase.html#resetFPSCounter()">resetFPSCounter</a></strong>()</code>
-<div class="block">Reset all performance counter (startTime, currentTime, frame number)</div>
+<div class="block">Reset all performance counter (startTime, currentTime, qtdeFrames number)</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -613,7 +613,7 @@ implements <a href="../../../../com/jogamp/opengl/GLAnimatorControl.html" title=
 <h4>resetFPSCounter</h4>
 <pre>public final&nbsp;void&nbsp;resetFPSCounter()</pre>
 <div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../com/jogamp/opengl/FPSCounter.html#resetFPSCounter()">FPSCounter</a></code></strong></div>
-<div class="block">Reset all performance counter (startTime, currentTime, frame number)</div>
+<div class="block">Reset all performance counter (startTime, currentTime, qtdeFrames number)</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../com/jogamp/opengl/FPSCounter.html#resetFPSCounter()">resetFPSCounter</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../com/jogamp/opengl/FPSCounter.html" title="interface in com.jogamp.opengl">FPSCounter</a></code></dd>
@@ -705,7 +705,7 @@ implements <a href="../../../../com/jogamp/opengl/GLAnimatorControl.html" title=
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../com/jogamp/opengl/FPSCounter.html#getTotalFPSFrames()">getTotalFPSFrames</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../com/jogamp/opengl/FPSCounter.html" title="interface in com.jogamp.opengl">FPSCounter</a></code></dd>
-<dt><span class="strong">Returns:</span></dt><dd>Number of frame rendered since <a href="../../../../com/jogamp/opengl/FPSCounter.html#getFPSStartTime()"><code>FPSCounter.getFPSStartTime()</code></a> up to <a href="../../../../com/jogamp/opengl/FPSCounter.html#getLastFPSUpdateTime()"><code>FPSCounter.getLastFPSUpdateTime()</code></a></dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../com/jogamp/opengl/FPSCounter.html#setUpdateFPSFrames(int, java.io.PrintStream)"><code>FPSCounter.setUpdateFPSFrames(int, PrintStream)</code></a>, 
+<dt><span class="strong">Returns:</span></dt><dd>Number of qtdeFrames rendered since <a href="../../../../com/jogamp/opengl/FPSCounter.html#getFPSStartTime()"><code>FPSCounter.getFPSStartTime()</code></a> up to <a href="../../../../com/jogamp/opengl/FPSCounter.html#getLastFPSUpdateTime()"><code>FPSCounter.getLastFPSUpdateTime()</code></a></dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../com/jogamp/opengl/FPSCounter.html#setUpdateFPSFrames(int, java.io.PrintStream)"><code>FPSCounter.setUpdateFPSFrames(int, PrintStream)</code></a>,
 <a href="../../../../com/jogamp/opengl/FPSCounter.html#resetFPSCounter()"><code>FPSCounter.resetFPSCounter()</code></a></dd></dl>
 </li>
 </ul>

@@ -148,7 +148,7 @@
 <tr class="altColor">
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../com/jogamp/opengl/util/av/AudioSink.html#DefaultFrameDuration">DefaultFrameDuration</a></strong></code>
-<div class="block">Default frame duration in millisecond, i.e.</div>
+<div class="block">Default qtdeFrames duration in millisecond, i.e.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -273,7 +273,7 @@
 <tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../com/jogamp/opengl/util/av/AudioSink.html#getQueuedTime()">getQueuedTime</a></strong>()</code>
-<div class="block">Returns the current queued frame time in milliseconds for playing.</div>
+<div class="block">Returns the current queued qtdeFrames time in milliseconds for playing.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -366,7 +366,7 @@
 <li class="blockList">
 <h4>DefaultFrameDuration</h4>
 <pre>static final&nbsp;int DefaultFrameDuration</pre>
-<div class="block">Default frame duration in millisecond, i.e. 1 frame per 32 ms.</div>
+<div class="block">Default qtdeFrames duration in millisecond, i.e. 1 qtdeFrames per 32 ms.</div>
 <dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#com.jogamp.opengl.util.av.AudioSink.DefaultFrameDuration">Constant Field Values</a></dd></dl>
 </li>
 </ul>
@@ -567,8 +567,8 @@
  beforehand and try to find a suitable supported one.
  <a href="../../../../../com/jogamp/opengl/util/av/AudioSink.html#getPreferredFormat()"><code>getPreferredFormat()</code></a> and <a href="../../../../../com/jogamp/opengl/util/av/AudioSink.html#getMaxSupportedChannels()"><code>getMaxSupportedChannels()</code></a> may help.
  </p></div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>requestedFormat</code> - the requested <a href="../../../../../com/jogamp/opengl/util/av/AudioSink.AudioFormat.html" title="class in com.jogamp.opengl.util.av"><code>AudioSink.AudioFormat</code></a>.</dd><dd><code>frameDuration</code> - average or fixed frame duration in milliseconds
-                      helping a caching <a href="../../../../../com/jogamp/opengl/util/av/AudioSink.AudioFrame.html" title="class in com.jogamp.opengl.util.av"><code>AudioSink.AudioFrame</code></a> based implementation to determine the frame count in the queue.
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>requestedFormat</code> - the requested <a href="../../../../../com/jogamp/opengl/util/av/AudioSink.AudioFormat.html" title="class in com.jogamp.opengl.util.av"><code>AudioSink.AudioFormat</code></a>.</dd><dd><code>frameDuration</code> - average or fixed qtdeFrames duration in milliseconds
+                      helping a caching <a href="../../../../../com/jogamp/opengl/util/av/AudioSink.AudioFrame.html" title="class in com.jogamp.opengl.util.av"><code>AudioSink.AudioFrame</code></a> based implementation to determine the qtdeFrames count in the queue.
                       See <a href="../../../../../com/jogamp/opengl/util/av/AudioSink.html#DefaultFrameDuration"><code>DefaultFrameDuration</code></a>.</dd><dd><code>initialQueueSize</code> - initial time in milliseconds to queue in this sink, see <a href="../../../../../com/jogamp/opengl/util/av/AudioSink.html#DefaultInitialQueueSize"><code>DefaultInitialQueueSize</code></a>.</dd><dd><code>queueGrowAmount</code> - time in milliseconds to grow queue if full, see <a href="../../../../../com/jogamp/opengl/util/av/AudioSink.html#DefaultQueueGrowAmount"><code>DefaultQueueGrowAmount</code></a>.</dd><dd><code>queueLimit</code> - maximum time in milliseconds the queue can hold (and grow), see <a href="../../../../../com/jogamp/opengl/util/av/AudioSink.html#DefaultQueueLimitWithVideo"><code>DefaultQueueLimitWithVideo</code></a> and <a href="../../../../../com/jogamp/opengl/util/av/AudioSink.html#DefaultQueueLimitAudioOnly"><code>DefaultQueueLimitAudioOnly</code></a>.</dd>
 <dt><span class="strong">Returns:</span></dt><dd>true if successful, otherwise false</dd></dl>
 </li>
@@ -701,7 +701,7 @@
 <li class="blockList">
 <h4>getQueuedTime</h4>
 <pre>int&nbsp;getQueuedTime()</pre>
-<div class="block">Returns the current queued frame time in milliseconds for playing.
+<div class="block">Returns the current queued qtdeFrames time in milliseconds for playing.
  <p>
  <a href="../../../../../com/jogamp/opengl/util/av/AudioSink.html#init(com.jogamp.opengl.util.av.AudioSink.AudioFormat, float, int, int, int)"><code>init(AudioFormat, float, int, int, int)</code></a> must be called first.
  </p></div>

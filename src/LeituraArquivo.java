@@ -11,7 +11,8 @@ public class LeituraArquivo {
     private static final String CAMINHO_PROJETO = System.getProperty("user.dir") + "/src/arquivos/";;
     private File arquivo;
     private final char SEPARADOR_DE_EXTENSAO = '.';
-    private int frame;
+    private int qtdeFrames;
+    private int pixelsPorMetro;
     private int maxX, maxY;
     private int qtdPessoas;
    
@@ -38,6 +39,7 @@ public class LeituraArquivo {
 
                     // Pula a primeira linha, que informa o número de pixels equivalente na conversão de dados
                     if(line.contains("[")) {
+                        pixelsPorMetro = Integer.parseInt(line.substring(line.indexOf("[")+1, line.indexOf("]")));
                         continue;
                     }
 
@@ -59,8 +61,8 @@ public class LeituraArquivo {
                             Coordenada coordenada = new Coordenada(x, y, temp);
                             filaCoordenadas.add(coordenada);
                            
-                            if(frame<temp) { //buscar o ultimo frame do video
-                            	frame=temp;
+                            if(qtdeFrames <temp) { //buscar o ultimo qtdeFrames do video
+                            	qtdeFrames =temp;
                             }                            
                             
                             if(x > maxX)
@@ -98,13 +100,16 @@ public class LeituraArquivo {
 		return maxY;
 	}
 
-	public int getFrame() {
-		return frame;
+	public int getQtdeFrames() {
+		return qtdeFrames;
 	}
 
-	public void setFrame(int frame) {
-		this.frame = frame;
+	public void setQtdeFrames(int qtdeFrames) {
+		this.qtdeFrames = qtdeFrames;
 	}
-    
+
+    public int getPixelsPorMetro() {
+        return pixelsPorMetro;
+    }
     
 }

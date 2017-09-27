@@ -101,7 +101,7 @@
 <br>
 <pre>public class <span class="strong">TimeFrameI</span>
 extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></pre>
-<div class="block">Integer time frame in milliseconds, maybe specialized for texture/video, audio, .. animated content.
+<div class="block">Integer time qtdeFrames in milliseconds, maybe specialized for texture/video, audio, .. animated content.
  <p>
  Type and value range has been chosen to suit embedded CPUs
  and characteristics of audio / video streaming and animations.
@@ -115,7 +115,7 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
  </p>
  <p>
  Milliseconds granularity for displaying video frames might seem inaccurate
- for each single frame, i.e. 60Hz != 16ms, however, accumulated values diminish
+ for each single qtdeFrames, i.e. 60Hz != 16ms, however, accumulated values diminish
  this error and vertical sync is achieved by build-in V-Sync of the video drivers.
  </p></div>
 </li>
@@ -187,25 +187,25 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 <tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../com/jogamp/opengl/util/TimeFrameI.html#getDuration()">getDuration</a></strong>()</code>
-<div class="block">Get this frame's duration in milliseconds.</div>
+<div class="block">Get this qtdeFrames's duration in milliseconds.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../com/jogamp/opengl/util/TimeFrameI.html#getPTS()">getPTS</a></strong>()</code>
-<div class="block">Get this frame's presentation timestamp (PTS) in milliseconds.</div>
+<div class="block">Get this qtdeFrames's presentation timestamp (PTS) in milliseconds.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../com/jogamp/opengl/util/TimeFrameI.html#setDuration(int)">setDuration</a></strong>(int&nbsp;duration)</code>
-<div class="block">Set this frame's duration in milliseconds.</div>
+<div class="block">Set this qtdeFrames's duration in milliseconds.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../com/jogamp/opengl/util/TimeFrameI.html#setPTS(int)">setPTS</a></strong>(int&nbsp;pts)</code>
-<div class="block">Set this frame's presentation timestamp (PTS) in milliseconds.</div>
+<div class="block">Set this qtdeFrames's presentation timestamp (PTS) in milliseconds.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -298,7 +298,7 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 <li class="blockList">
 <h4>getPTS</h4>
 <pre>public final&nbsp;int&nbsp;getPTS()</pre>
-<div class="block">Get this frame's presentation timestamp (PTS) in milliseconds.</div>
+<div class="block">Get this qtdeFrames's presentation timestamp (PTS) in milliseconds.</div>
 </li>
 </ul>
 <a name="setPTS(int)">
@@ -308,7 +308,7 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 <li class="blockList">
 <h4>setPTS</h4>
 <pre>public final&nbsp;void&nbsp;setPTS(int&nbsp;pts)</pre>
-<div class="block">Set this frame's presentation timestamp (PTS) in milliseconds.</div>
+<div class="block">Set this qtdeFrames's presentation timestamp (PTS) in milliseconds.</div>
 </li>
 </ul>
 <a name="getDuration()">
@@ -318,7 +318,7 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 <li class="blockList">
 <h4>getDuration</h4>
 <pre>public final&nbsp;int&nbsp;getDuration()</pre>
-<div class="block">Get this frame's duration in milliseconds.</div>
+<div class="block">Get this qtdeFrames's duration in milliseconds.</div>
 </li>
 </ul>
 <a name="setDuration(int)">
@@ -328,7 +328,7 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 <li class="blockList">
 <h4>setDuration</h4>
 <pre>public final&nbsp;void&nbsp;setDuration(int&nbsp;duration)</pre>
-<div class="block">Set this frame's duration in milliseconds.</div>
+<div class="block">Set this qtdeFrames's duration in milliseconds.</div>
 </li>
 </ul>
 <a name="toString()">

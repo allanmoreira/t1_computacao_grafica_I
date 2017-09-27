@@ -263,7 +263,7 @@ implements <a href="../../../../../com/jogamp/opengl/util/texture/TextureSequenc
 <tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../com/jogamp/opengl/util/texture/ImageSequence.html#getTextureUnit()">getTextureUnit</a></strong>()</code>
-<div class="block">Return the texture unit used to render the current frame.</div>
+<div class="block">Return the texture unit used to render the current qtdeFrames.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -461,7 +461,7 @@ implements <a href="../../../../../com/jogamp/opengl/util/texture/TextureSequenc
 <h4>getTextureUnit</h4>
 <pre>public&nbsp;int&nbsp;getTextureUnit()</pre>
 <div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../../com/jogamp/opengl/util/texture/TextureSequence.html#getTextureUnit()">TextureSequence</a></code></strong></div>
-<div class="block">Return the texture unit used to render the current frame.</div>
+<div class="block">Return the texture unit used to render the current qtdeFrames.</div>
 <dl>
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../../com/jogamp/opengl/util/texture/TextureSequence.html#getTextureUnit()">getTextureUnit</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../com/jogamp/opengl/util/texture/TextureSequence.html" title="interface in com.jogamp.opengl.util.texture">TextureSequence</a></code></dd>
@@ -544,11 +544,11 @@ implements <a href="../../../../../com/jogamp/opengl/util/texture/TextureSequenc
 <div class="block"><strong>Description copied from interface:&nbsp;<code><a href="../../../../../com/jogamp/opengl/util/texture/TextureSequence.html#getNextTexture(com.jogamp.opengl.GL)">TextureSequence</a></code></strong></div>
 <div class="block">Returns the next texture to be rendered.
  <p>
- Implementation shall return the next frame if available, may block if a next frame may arrive <i>soon</i>.
- Otherwise implementation shall return the last frame.
+ Implementation shall return the next qtdeFrames if available, may block if a next qtdeFrames may arrive <i>soon</i>.
+ Otherwise implementation shall return the last qtdeFrames.
  </p>
  <p>
- Shall return <code>null</code> in case <i>no</i> next or last frame is available.
+ Shall return <code>null</code> in case <i>no</i> next or last qtdeFrames is available.
  </p></div>
 <dl>
 <dt><strong>Specified by:</strong></dt>

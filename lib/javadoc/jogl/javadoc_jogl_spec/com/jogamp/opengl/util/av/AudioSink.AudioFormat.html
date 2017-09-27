@@ -221,7 +221,7 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../com/jogamp/opengl/util/av/AudioSink.AudioFormat.html#getFrameCount(int, float)">getFrameCount</a></strong>(int&nbsp;millisecs,
              float&nbsp;frameDuration)</code>
-<div class="block">Returns the rounded frame count of the given milliseconds and frame duration.</div>
+<div class="block">Returns the rounded qtdeFrames count of the given milliseconds and qtdeFrames duration.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -234,7 +234,7 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 <tr class="rowColor">
 <td class="colFirst"><code>float</code></td>
 <td class="colLast"><code><strong><a href="../../../../../com/jogamp/opengl/util/av/AudioSink.AudioFormat.html#getSamplesDuration(int)">getSamplesDuration</a></strong>(int&nbsp;sampleCount)</code>
-<div class="block">Returns the duration in milliseconds of the given sample count per frame and channel
+<div class="block">Returns the duration in milliseconds of the given sample count per qtdeFrames and channel
  according to the <a href="../../../../../com/jogamp/opengl/util/av/AudioSink.AudioFormat.html#sampleRate"><code>sampleRate</code></a>, i.e.</div>
 </td>
 </tr>
@@ -399,7 +399,7 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 <li class="blockList">
 <h4>getSamplesDuration</h4>
 <pre>public final&nbsp;float&nbsp;getSamplesDuration(int&nbsp;sampleCount)</pre>
-<div class="block">Returns the duration in milliseconds of the given sample count per frame and channel
+<div class="block">Returns the duration in milliseconds of the given sample count per qtdeFrames and channel
  according to the <a href="../../../../../com/jogamp/opengl/util/av/AudioSink.AudioFormat.html#sampleRate"><code>sampleRate</code></a>, i.e.
  <pre>
     ( 1000f * sampleCount ) / sampleRate
@@ -407,7 +407,7 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
  <p>
  Sample Count -> Time
  </p></div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>sampleCount</code> - sample count per frame and channel</dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>sampleCount</code> - sample count per qtdeFrames and channel</dd></dl>
 </li>
 </ul>
 <a name="getFrameCount(int, float)">
@@ -418,18 +418,18 @@ extends <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/Object.html?
 <h4>getFrameCount</h4>
 <pre>public final&nbsp;int&nbsp;getFrameCount(int&nbsp;millisecs,
                 float&nbsp;frameDuration)</pre>
-<div class="block">Returns the rounded frame count of the given milliseconds and frame duration.
+<div class="block">Returns the rounded qtdeFrames count of the given milliseconds and qtdeFrames duration.
  <pre>
      Math.max( 1, millisecs / frameDuration + 0.5f )
  </pre>
  <p>
- Note: <code>frameDuration</code> can be derived by <i>sample count per frame and channel</i>
+ Note: <code>frameDuration</code> can be derived by <i>sample count per qtdeFrames and channel</i>
  via <a href="../../../../../com/jogamp/opengl/util/av/AudioSink.AudioFormat.html#getSamplesDuration(int)"><code>getSamplesDuration(int)</code></a>.
  </p>
  <p>
  Frame Time -> Frame Count
  </p></div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>millisecs</code> - time in milliseconds</dd><dd><code>frameDuration</code> - duration per frame in milliseconds.</dd></dl>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>millisecs</code> - time in milliseconds</dd><dd><code>frameDuration</code> - duration per qtdeFrames in milliseconds.</dd></dl>
 </li>
 </ul>
 <a name="getSamplesByteCount(int)">

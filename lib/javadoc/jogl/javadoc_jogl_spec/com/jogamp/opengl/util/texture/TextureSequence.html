@@ -292,7 +292,7 @@
 <tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../com/jogamp/opengl/util/texture/TextureSequence.html#getTextureUnit()">getTextureUnit</a></strong>()</code>
-<div class="block">Return the texture unit used to render the current frame.</div>
+<div class="block">Return the texture unit used to render the current qtdeFrames.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -366,7 +366,7 @@
 <li class="blockList">
 <h4>getTextureUnit</h4>
 <pre>int&nbsp;getTextureUnit()</pre>
-<div class="block">Return the texture unit used to render the current frame.</div>
+<div class="block">Return the texture unit used to render the current qtdeFrames.</div>
 </li>
 </ul>
 <a name="getTextureMinMagFilter()">
@@ -427,11 +427,11 @@
                                             throws <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></pre>
 <div class="block">Returns the next texture to be rendered.
  <p>
- Implementation shall return the next frame if available, may block if a next frame may arrive <i>soon</i>.
- Otherwise implementation shall return the last frame.
+ Implementation shall return the next qtdeFrames if available, may block if a next qtdeFrames may arrive <i>soon</i>.
+ Otherwise implementation shall return the last qtdeFrames.
  </p>
  <p>
- Shall return <code>null</code> in case <i>no</i> next or last frame is available.
+ Shall return <code>null</code> in case <i>no</i> next or last qtdeFrames is available.
  </p></div>
 <dl><dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/6/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - if instance is not initialized</dd></dl>

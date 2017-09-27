@@ -111,11 +111,11 @@ extends <a href="../../../../../com/jogamp/opengl/util/texture/TextureSequence.h
  Most of the stream processing is performed on the decoding thread, a.k.a. <i>StreamWorker</i>:
  <ul>
    <li>Stream initialization triggered by <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.html#initStream(com.jogamp.common.net.Uri, int, int, int)"><code>initStream(..)</code></a> - User gets notified whether the stream has been initialized or not via <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.GLMediaEventListener.html#attributesChanged(com.jogamp.opengl.util.av.GLMediaPlayer, int, long)"><code>attributesChanges(..)</code></a>.</li>
-   <li>Stream decoding - User gets notified of a new frame via <code>newFrameAvailable(...)</code>.</li>
+   <li>Stream decoding - User gets notified of a new qtdeFrames via <code>newFrameAvailable(...)</code>.</li>
    <li>Caught <a href="#streamerror">exceptions on the decoding thread</a> are delivered as <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.StreamException.html" title="class in com.jogamp.opengl.util.av"><code>GLMediaPlayer.StreamException</code></a>s.</li>
  </ul>
  <i>StreamWorker</i> generates it's own <code>GLContext</code>, shared with the one passed to <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.html#initGL(com.jogamp.opengl.GL)"><code>initGL(GL)</code></a>.
- The shared <code>GLContext</code> allows the decoding thread to push the video frame data directly into
+ The shared <code>GLContext</code> allows the decoding thread to push the video qtdeFrames data directly into
  the designated <code>TextureFrame</code>, later returned via <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.html#getNextTexture(com.jogamp.opengl.GL)"><code>getNextTexture(GL)</code></a> and used by the user.
  </p>
  <a name="streamerror"><h7><i>StreamWorker</i> Error Handling</h7></a>
@@ -185,12 +185,12 @@ extends <a href="../../../../../com/jogamp/opengl/util/texture/TextureSequence.h
  <a name="synchronization"><h5>Audio and video synchronization</h5></a>
  <p>
  The class follows a passive A/V synchronization pattern.
- Audio is being untouched, while <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.html#getNextTexture(com.jogamp.opengl.GL)"><code>getNextTexture(GL)</code></a> delivers a new video frame
+ Audio is being untouched, while <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.html#getNextTexture(com.jogamp.opengl.GL)"><code>getNextTexture(GL)</code></a> delivers a new video qtdeFrames
  only, if its timestamp is less than <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.html#MAXIMUM_VIDEO_ASYNC"><code>MAXIMUM_VIDEO_ASYNC</code></a> ahead of <i>time</i>.
  If its timestamp is more than <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.html#MAXIMUM_VIDEO_ASYNC"><code>MAXIMUM_VIDEO_ASYNC</code></a> ahead of <i>time</i>,
- the previous frame is returned.
+ the previous qtdeFrames is returned.
  If its timestamp is more than <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.html#MAXIMUM_VIDEO_ASYNC"><code>MAXIMUM_VIDEO_ASYNC</code></a> after <i>time</i>,
- the frame is dropped and the next frame is being fetched.
+ the qtdeFrames is dropped and the next qtdeFrames is being fetched.
  </p>
  <p>
  https://en.wikipedia.org/wiki/Audio_to_video_synchronization
@@ -337,7 +337,7 @@ extends <a href="../../../../../com/jogamp/opengl/util/texture/TextureSequence.h
 <tr class="rowColor">
 <td class="colFirst"><code>static int</code></td>
 <td class="colLast"><code><strong><a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.html#MAXIMUM_VIDEO_ASYNC">MAXIMUM_VIDEO_ASYNC</a></strong></code>
-<div class="block">Maximum video frame async of 22 milliseconds.</div>
+<div class="block">Maximum video qtdeFrames async of 22 milliseconds.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -591,7 +591,7 @@ extends <a href="../../../../../com/jogamp/opengl/util/texture/TextureSequence.h
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.html#isGLOriented()">isGLOriented</a></strong>()</code>
-<div class="block">Returns <code>true</code> if the video frame is oriented in
+<div class="block">Returns <code>true</code> if the video qtdeFrames is oriented in
  OpenGL's coordinate system, <i>origin at bottom left</i>.</div>
 </td>
 </tr>
@@ -832,7 +832,7 @@ extends <a href="../../../../../com/jogamp/opengl/util/texture/TextureSequence.h
 <li class="blockList">
 <h4>MAXIMUM_VIDEO_ASYNC</h4>
 <pre>static final&nbsp;int MAXIMUM_VIDEO_ASYNC</pre>
-<div class="block">Maximum video frame async of 22 milliseconds.</div>
+<div class="block">Maximum video qtdeFrames async of 22 milliseconds.</div>
 <dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../../../constant-values.html#com.jogamp.opengl.util.av.GLMediaPlayer.MAXIMUM_VIDEO_ASYNC">Constant Field Values</a></dd></dl>
 </li>
 </ul>
@@ -1067,7 +1067,7 @@ extends <a href="../../../../../com/jogamp/opengl/util/texture/TextureSequence.h
  <a href="#lifecycle">Lifecycle</a>: <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.State.html#Playing"><code>GLMediaPlayer.State.Playing</code></a> -> <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.State.html#Paused"><code>GLMediaPlayer.State.Paused</code></a>
  </p>
  <p>
- If a <i>new</i> frame is desired after the next <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.html#play()"><code>play()</code></a> call,
+ If a <i>new</i> qtdeFrames is desired after the next <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.html#play()"><code>play()</code></a> call,
  e.g. to make a snapshot of a camera input stream,
  <code>flush</code> shall be set to <code>true</code>.
  </p></div>
@@ -1129,7 +1129,7 @@ extends <a href="../../../../../com/jogamp/opengl/util/texture/TextureSequence.h
 <li class="blockList">
 <h4>getDecodedFrameCount</h4>
 <pre>int&nbsp;getDecodedFrameCount()</pre>
-<dl><dt><span class="strong">Returns:</span></dt><dd>the current decoded frame count since <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.html#play()"><code>play()</code></a> and <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.html#seek(int)"><code>seek(int)</code></a>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the current decoded qtdeFrames count since <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.html#play()"><code>play()</code></a> and <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.html#seek(int)"><code>seek(int)</code></a>
          as increased by <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.html#getNextTexture(com.jogamp.opengl.GL)"><code>getNextTexture(GL)</code></a> or the decoding thread.</dd></dl>
 </li>
 </ul>
@@ -1140,7 +1140,7 @@ extends <a href="../../../../../com/jogamp/opengl/util/texture/TextureSequence.h
 <li class="blockList">
 <h4>getPresentedFrameCount</h4>
 <pre>int&nbsp;getPresentedFrameCount()</pre>
-<dl><dt><span class="strong">Returns:</span></dt><dd>the current presented frame count since <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.html#play()"><code>play()</code></a> and <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.html#seek(int)"><code>seek(int)</code></a>
+<dl><dt><span class="strong">Returns:</span></dt><dd>the current presented qtdeFrames count since <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.html#play()"><code>play()</code></a> and <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.html#seek(int)"><code>seek(int)</code></a>
          as increased by <a href="../../../../../com/jogamp/opengl/util/av/GLMediaPlayer.html#getNextTexture(com.jogamp.opengl.GL)"><code>getNextTexture(GL)</code></a> for new frames.</dd></dl>
 </li>
 </ul>
@@ -1199,11 +1199,11 @@ extends <a href="../../../../../com/jogamp/opengl/util/texture/TextureSequence.h
                                             throws <a href="http://docs.oracle.com/javase/6/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></pre>
 <div class="block">Returns the next texture to be rendered.
  <p>
- Implementation shall return the next frame if available, may block if a next frame may arrive <i>soon</i>.
- Otherwise implementation shall return the last frame.
+ Implementation shall return the next qtdeFrames if available, may block if a next qtdeFrames may arrive <i>soon</i>.
+ Otherwise implementation shall return the last qtdeFrames.
  </p>
  <p>
- Shall return <code>null</code> in case <i>no</i> next or last frame is available.
+ Shall return <code>null</code> in case <i>no</i> next or last qtdeFrames is available.
  </p>
 
  <p>
@@ -1337,11 +1337,11 @@ extends <a href="../../../../../com/jogamp/opengl/util/texture/TextureSequence.h
 <li class="blockList">
 <h4>isGLOriented</h4>
 <pre>boolean&nbsp;isGLOriented()</pre>
-<div class="block">Returns <code>true</code> if the video frame is oriented in
+<div class="block">Returns <code>true</code> if the video qtdeFrames is oriented in
  OpenGL's coordinate system, <i>origin at bottom left</i>.
  <p>
  Otherwise returns <code>false</code>, i.e.
- video frame is oriented <i>origin at top left</i>.
+ video qtdeFrames is oriented <i>origin at top left</i>.
  </p>
  <p>
  <code>false</code> is the default assumption for videos,
