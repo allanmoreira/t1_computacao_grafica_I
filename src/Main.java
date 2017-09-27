@@ -1,13 +1,6 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 
-import com.jogamp.opengl.*;
-import com.jogamp.opengl.awt.GLCanvas;
-import com.jogamp.opengl.glu.GLU;
-
-import java.awt.Frame;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import com.jogamp.opengl.GL;
 
 /**
  * Created by allan on 30/08/17.
@@ -18,30 +11,23 @@ public class Main {
         ArrayList<Pessoa> listaPessoas = leituraArquivo.ler();
         Desenho desenho = new Desenho(leituraArquivo.getMaxY(),leituraArquivo.getMaxX(), listaPessoas, leituraArquivo.getFrame());
         desenho.play();
-    }
-    
-    /*
-     * Cria a Matriz de Pessoas/frames
-     */
-    private static Coordenada[][] criaMatriz(int frames, int qtdPessoa, ArrayList<Pessoa> listaPessoas){
-    	
-    	Coordenada[][] matriz = new Coordenada[qtdPessoa][frames];
-    	
-    	for (int x=0;x<qtdPessoa;x++){
-    		Pessoa atual = listaPessoas.get(x);
-    		int y = 0;
-    	//	for (int y=0;y<atual.getQtdeMovimentos();y++){    			
-    			Queue<Coordenada> filaCoordenadas = atual.getFilaCoordenadas();                
-                while(!filaCoordenadas.isEmpty()){
-                	// System.out.print(" " + filaCoordenadas.dequeue().toString());                	
-                	Coordenada i = filaCoordenadas.dequeue();
-                	matriz[x][y] = i;
-                	y++;
-                }
-    	//	}
-    	}
-    	
-    	
-    	return matriz;
+        
+        /*
+        int tempoAtual = 0;
+        int frameMaximo = leituraArquivo.getFrame();
+        while(tempoAtual <= frameMaximo){
+        	System.out.println("\nFrame " + tempoAtual);
+	        for (int i = 0; i < listaPessoas.size(); i++) {
+	            Pessoa pessoa = listaPessoas.get(i);
+	            if(tempoAtual == pessoa.getFilaCoordenadas().head().getTempo()){
+	                Coordenada coordenada = pessoa.getFilaCoordenadas().dequeue();
+	                if(pessoa.getFilaCoordenadas().isEmpty())
+	                    listaPessoas.remove(i);
+		            System.out.println("X:"+ coordenada.getX() + " - " + "Y:"+ coordenada.getY());	               
+	            }
+	        }
+	        tempoAtual++;
+        }
+        */
     }
 }
