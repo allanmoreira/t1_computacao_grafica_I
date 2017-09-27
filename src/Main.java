@@ -12,22 +12,40 @@ public class Main {
         Desenho desenho = new Desenho(leituraArquivo.getMaxY(),leituraArquivo.getMaxX(), listaPessoas, leituraArquivo.getFrame());
         desenho.play();
         
-        /*
-        int tempoAtual = 0;
-        int frameMaximo = leituraArquivo.getFrame();
-        while(tempoAtual <= frameMaximo){
-        	System.out.println("\nFrame " + tempoAtual);
-	        for (int i = 0; i < listaPessoas.size(); i++) {
-	            Pessoa pessoa = listaPessoas.get(i);
-	            if(tempoAtual == pessoa.getFilaCoordenadas().head().getTempo()){
-	                Coordenada coordenada = pessoa.getFilaCoordenadas().dequeue();
-	                if(pessoa.getFilaCoordenadas().isEmpty())
-	                    listaPessoas.remove(i);
-		            System.out.println("X:"+ coordenada.getX() + " - " + "Y:"+ coordenada.getY());	               
-	            }
-	        }
-	        tempoAtual++;
-        }
-        */
+  //      System.out.println(listaPessoas.size());
+//        int numP = 1;
+//        for (Pessoa pessoa: listaPessoas) {
+//        	Queue<Coordenada> filaCoordenadas = pessoa.getFilaCoordenadas();
+//        	
+//        	while (!filaCoordenadas.isEmpty()) {
+//        		Coordenada coordenada = pessoa.getFilaCoordenadas().dequeue();
+//        		System.out.println(coordenada.getX() + " " + coordenada.getY()+ " " + numP + " " + coordenada.getTempo());
+//        	}
+//        	numP++;
+//        }
+//        
+////        
+//        int tempoAtual = 1;
+//        int frameMaximo = leituraArquivo.getFrame();
+//        while(tempoAtual <= frameMaximo){
+//        	System.out.println("\nFrame " + tempoAtual);
+//	        for (int i = 0; i < listaPessoas.size(); i++) {	        	
+//	            Pessoa pessoa = listaPessoas.get(i);
+//	            if(pessoa.getFilaCoordenadas().isEmpty()) {
+//                   continue;
+//                }
+//	            
+//	            if(tempoAtual == pessoa.getFilaCoordenadas().peek().getTempo()){
+//	                Coordenada coordenada = pessoa.getFilaCoordenadas().poll();
+//	               
+//		            System.out.println("X:"+ coordenada.getX() + " - " + "Y:"+ coordenada.getY());	               
+//	            }
+//	        }
+//	        tempoAtual++;
+//        }
+    
+      //  System.out.println(listaPessoas.size());
+        
+        
+    	}
     }
-}

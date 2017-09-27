@@ -1,5 +1,7 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Created by Allan Moreira on 30/08/17.
@@ -32,7 +34,7 @@ public class LeituraArquivo {
                 // Le as informacoes do arquivo (uma linha por vez)
                 while ((line = buf.readLine()) != null) {
                     Pessoa pessoa = new Pessoa();
-                    filaCoordenadas = new Queue<>();
+                    filaCoordenadas = new LinkedList<Coordenada>();
 
                     // Pula a primeira linha, que informa o número de pixels equivalente na conversão de dados
                     if(line.contains("[")) {
@@ -55,7 +57,7 @@ public class LeituraArquivo {
                             int y = Integer.parseInt(pos[1]);
                             int temp = Integer.parseInt(pos[2]);
                             Coordenada coordenada = new Coordenada(x, y, temp);
-                            filaCoordenadas.enqueue(coordenada);
+                            filaCoordenadas.add(coordenada);
                            
                             if(frame<temp) { //buscar o ultimo frame do video
                             	frame=temp;
