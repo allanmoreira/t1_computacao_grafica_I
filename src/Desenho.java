@@ -25,7 +25,9 @@ public class Desenho extends JFrame implements GLEventListener {
     private int qtdesFrames;
     private int pixelsPorMetro;
     private int tempoAtual = 1;
-    private static final int FPS = 500;
+    private static final int FPS = 30;
+
+    private float R, G, B;
 
     private int x, y;
 
@@ -35,6 +37,10 @@ public class Desenho extends JFrame implements GLEventListener {
         GLCapabilities capabilities = new GLCapabilities(profile);
         GLCanvas canvas = new GLCanvas(capabilities);
         canvas.addGLEventListener(this);
+
+        R = 0.0f;
+        G = 0.0f;
+        B = 0.0f;
         
         final FPSAnimator animator = new FPSAnimator(canvas, FPS, true);
         GLWindow window = GLWindow.create(capabilities);
@@ -87,16 +93,15 @@ public class Desenho extends JFrame implements GLEventListener {
     }
 
     @Override
-    public void dispose(GLAutoDrawable drawable) {
-        System.out.println("SAIU");
-    }
+    public void dispose(GLAutoDrawable drawable) {}
 
     @Override
     public void display(GLAutoDrawable drawable) {
     	GL2 gl = drawable.getGL().getGL2();
-        gl.glClear(GL.GL_COLOR_BUFFER_BIT | GL.GL_DEPTH_BUFFER_BIT); 
-      //  gl.glClearColor(0,0,0,0);
-        gl.glColor3f(0, 0, 1);
+        gl.glClear(GL.GL_COLOR_BUFFER_BIT | GL.GL_DEPTH_BUFFER_BIT);
+//        gl.glClearColor(0,0,0,0);
+        gl.glColor3f(R, G, B);
+//        gl.glColor3f(1.0f, 0.0f, 1.0f);
         gl.glLineWidth(3);
 
         listaCoordenadasFrame = new ArrayList<>();
@@ -112,14 +117,18 @@ public class Desenho extends JFrame implements GLEventListener {
                 listaCoordenadasFrame.add(coordenada);
 
                 gl.glBegin( GL.GL_LINE_LOOP );
+//                gl.glColor3f(1.0f, 0.7f, 0.0f);
                 gl.glVertex2f(coordenada.getX()-proporcao-1, altura -(coordenada.getY()-proporcao));
                 gl.glVertex2f(coordenada.getX()-proporcao-1, altura -(coordenada.getY()+proporcao));
                 gl.glVertex2f(coordenada.getX()+proporcao-1, altura -(coordenada.getY()+proporcao));
                 gl.glVertex2f(coordenada.getX()+proporcao-1, altura -(coordenada.getY()-proporcao));
                 gl.glEnd();
-
             }
         }
+
+        R = R + 0.005f;
+//        G =  G + 0.005f;
+//        B = B + 0.005f;
         matrizPessoasPorFrame.add(listaCoordenadasFrame);
 //        System.out.println("Qtde loops: " + contLoopDisplay++);
         tempoAtual++;
@@ -127,6 +136,8 @@ public class Desenho extends JFrame implements GLEventListener {
             new Eventos(matrizPessoasPorFrame, pixelsPorMetro);
             this.dispose();
         }
+
+
     }
 
     @Override
